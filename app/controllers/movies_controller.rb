@@ -33,4 +33,13 @@ class MoviesController < ApplicationController
   redirect_to("/movies")
   end
 
+  def destroy
+  d_id = params.fetch("destroy_id")
+  matching_record = Movie.where({:id => d_id}).first
+
+  matching_record.destroy
+
+  redirect_to("/movies")
+  end
+
 end
